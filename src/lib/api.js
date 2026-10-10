@@ -1,8 +1,8 @@
 const URLS = [
   process.env.NEXT_PUBLIC_API_URL ||
-    "https://api.api-store.workers.dev/api/bazardor",
-  process.env.NEXT_PUBLIC_API_URL_2 ||
-    "https://api.abcz.workers.dev/api/bazardor",
+    "https://openapi.programming-hero.com/api/bazardor",
+  "https://api.api-store.workers.dev/api/bazardor",
+  "https://api.abcz.workers.dev/api/bazardor",
 ];
 
 async function fetchApi(path) {

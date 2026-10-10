@@ -1,6 +1,7 @@
 import { Hind_Siliguri } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const bangla = Hind_Siliguri({
   variable: "--font-bangla",
@@ -10,18 +11,19 @@ const bangla = Hind_Siliguri({
 
 export const metadata = {
   title: "বাজার দর | BazarDor",
-  descriction: "প্রয়োজনীয় পণ্যের দাম এক নজরে",
+  description: "প্রয়োজনীয় পণ্যের দাম এক নজরে",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="bn"
-      data-theme="light"
+      data-theme="bazardor"
       className={`${bangla.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-base-100">
         {/* Navbar + Ticker ekhane boshbe (Phase 1) */}
+        <Navbar />
         <main className="flex-1">{children}</main>
         {/* Footer ekhane boshbe (Phase 1) */}
         <Toaster position="top-center" />

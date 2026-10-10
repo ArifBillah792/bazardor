@@ -1,6 +1,19 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: light --default;
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "bazardor";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #fbfcf9;
+  --color-base-200: #f1f2ef;
+  --color-base-300: #e3e6df;
+  --color-base-content: #1c1f1a;
+  --color-primary: #15803d;
+  --color-primary-content: #ffffff;
+  --color-success: #15803d;
+  --color-error: #dc2626;
+  --radius-box: 1rem;
 }
 
 html {
