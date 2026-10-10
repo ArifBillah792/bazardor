@@ -1,16 +1,17 @@
-import { getCategories } from "@/lib/api";
+import { getCategories, getProducts } from "@/lib/api";
 import Link from "next/link";
 import React from "react";
 import NavLinks from "./NavLinks";
 import { bnDate } from "@/lib/bn";
+import Ticker from "./Ticker"; //
 
 const Navbar = async () => {
   const categories = await getCategories();
+  const products = await getProducts();
 
   return (
     <header className="sticky top-0 z-50">
       {/* Row 1: Logo + Auth (gray) */}
-
       <div className="bg-base-200">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
           <Link href="/" className="flex items-center gap-2">
@@ -37,14 +38,14 @@ const Navbar = async () => {
           </div>
         </div>
       </div>
-
       {/* Row 2: Category links (white) */}
-
       <div className="bg-base-100 border-b border-base-300">
         <div className="max-w-6xl mx-auto px-4 py-2">
           <NavLinks categories={categories} />
         </div>
       </div>
+      {/* Row 3: Ticker */}
+      <Ticker products={products} />
     </header>
   );
 };
