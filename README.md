@@ -1,54 +1,30 @@
 # 🛒 বাজার দর (BazarDor)
 
-বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের আজকের বাজারদর এক জায়গায়। চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম-দুধ ও মসলার দাম, দেশের ৬টি বিভাগের ১২টি বাজারের তুলনা, এবং দামের ওঠানামা এক নজরে।
+## Short Description
 
-**Live Site:** https://bazardor-mu-red.vercel.app
+বাজার দর is a web app that shows today's prices of everyday essentials in Bangladesh, such as rice, lentils, oil, vegetables, fish, meat, eggs, milk and spices. Users can see which prices went up or down today, browse products by category, and (after logging in) compare each product's price across 12 markets in 6 divisions.
 
-## ✨ Key Features
+## Technologies Used
 
-1. **Live price ticker:** নেভবারের নিচে সব পণ্যের দাম ও পরিবর্তনের (▲/▼ %) অবিরাম স্ক্রলিং স্ট্রিপ
-2. **Price movers:** হোম পেজে আজ যেসব পণ্যের দাম সবচেয়ে বেশি বেড়েছে ও কমেছে, তার টপ ৬
-3. **Category browsing with sorting:** ক্যাটাগরি অনুযায়ী পণ্য, দাম অনুযায়ী কম থেকে বেশি / বেশি থেকে কম সাজানো (বাংলা সংখ্যাসহ সঠিক numeric sort)
-4. **Protected product details:** লগইন করা ইউজারের জন্য প্রতিটি পণ্যের সর্বনিম্ন, সর্বোচ্চ ও গড় দাম এবং ১২টি বাজারের দামের টেবিল
-5. **Authentication:** BetterAuth দিয়ে Email/Password ও GitHub লগইন, সাইন আউট, এবং প্রতিটি অ্যাকশনে toast নোটিফিকেশন
-6. **Profile management:** "My Profile" পেজ থেকে নাম আপডেট করার সুবিধা
-7. **Fully Bangla UI:** বাংলা সংখ্যা, বাংলা তারিখ ও Hind Siliguri ফন্ট
-8. **Responsive design:** মোবাইল, ট্যাবলেট ও ডেস্কটপে সমানভাবে ব্যবহারযোগ্য, সাথে skeleton loading ও কাস্টম 404 পেজ
+- Next.js (App Router)
+- React
+- JavaScript
+- Tailwind CSS
+- DaisyUI
+- BetterAuth (Email/Password, Google, GitHub)
+- MongoDB Atlas
+- react-hot-toast
+- react-icons
+- Vercel
 
-## 🛠️ Technologies Used
+## Key Features
 
-- **Next.js 16** (App Router, Server & Client Components)
-- **React 19**
-- **Tailwind CSS 4** + **DaisyUI 5**
-- **BetterAuth** (Email/Password + GitHub OAuth)
-- **MongoDB Atlas** (auth database)
-- **react-hot-toast** (notifications)
-- **react-icons**
-- **Vercel** (deployment)
+1. **Live price ticker:** an infinite scrolling strip below the navbar showing every product's price and change (▲/▼ %).
 
-## 🚀 Run Locally
+2. **Today's price movers:** the home page highlights the top 6 products whose prices rose and the top 6 whose prices fell today.
 
-```bash
-git clone https://github.com/ArifBillah792/bazardor.git
-cd bazardor
-npm install
-```
+3. **Category pages with sorting:** browse products by category and sort by price (low to high / high to low), using numeric values so Bengali numerals sort correctly.
 
-Create a `.env` file in the project root:
+4. **Protected product details:** logged-in users see each product's minimum, maximum and average price, plus a market-by-market price table.
 
-```
-NEXT_PUBLIC_API_URL=https://openapi.programming-hero.com/api/bazardor
-MONGODB_URL=your_mongodb_connection_string
-BETTER_AUTH_SECRET=your_secret
-BETTER_AUTH_URL=http://localhost:3000
-GITHUB_CLIENT_ID=your_github_client_id
-GITHUB_CLIENT_SECRET=your_github_client_secret
-```
-
-Then start the dev server:
-
-```bash
-npm run dev
-```
-
-Open http://localhost:3000
+5. **Authentication & profile:** sign up / sign in with Email & Password, Google or GitHub using BetterAuth, with toast notifications, and update your name from the My Profile page.
