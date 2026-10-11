@@ -1,9 +1,9 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { authClient } from "@/lib/auth-client";
 
 const SocialButtons = () => {
   const handleSocial = async (provider) => {
@@ -11,7 +11,6 @@ const SocialButtons = () => {
       provider,
       callbackURL: "/",
     });
-
     if (error) toast.error(error.message || "সোশ্যাল লগইন ব্যর্থ হয়েছে");
   };
 
