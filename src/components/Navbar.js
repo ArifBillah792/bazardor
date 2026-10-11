@@ -1,13 +1,16 @@
-import { getCategories, getProducts } from "@/lib/api";
 import Link from "next/link";
-import React from "react";
-import NavLinks from "./NavLinks";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
+import { getCategories, getProducts } from "@/lib/api";
 import { bnDate } from "@/lib/bn";
-import Ticker from "./Ticker"; //
+import NavLinks from "./NavLinks";
+import Ticker from "./Ticker";
+import UserMenu from "./UserMenu";
 
 const Navbar = async () => {
   const categories = await getCategories();
   const products = await getProducts();
+  const session = await auth.api.getSession({ headers: await headers() });
 
   return (
     <header className="sticky top-0 z-50">
@@ -28,22 +31,28 @@ const Navbar = async () => {
             </span>
           </Link>
 
-          <div className="flex gap-2">
-            <Link href="/signin" className="btn btn-ghost btn-sm sm:btn-md">
-              সাইন ইন
-            </Link>
-            <Link href="/signup" className="btn btn-primary btn-sm sm:btn-md">
-              সাইন আপ
-            </Link>
-          </div>
+          {session ? (
+            <UserMenu user={session.user} />
+          ) : (
+            <div className="flex gap-2">
+              <Link href="/signin" className="btn btn-ghost btn-sm sm:btn-md">
+                সাইন ইন
+              </Link>
+              <Link href="/signup" className="btn btn-primary btn-sm sm:btn-md">
+                সাইন আপ
+              </Link>
+            </div>
+          )}
         </div>
       </div>
+
       {/* Row 2: Category links (white) */}
       <div className="bg-base-100 border-b border-base-300">
         <div className="max-w-6xl mx-auto px-4 py-2">
           <NavLinks categories={categories} />
         </div>
       </div>
+
       {/* Row 3: Ticker */}
       <Ticker products={products} />
     </header>
