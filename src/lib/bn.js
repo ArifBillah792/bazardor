@@ -34,9 +34,11 @@ export const unitLine = (unit) => `প্রতি ${unitBn(unit)}`;
 export function changeInfo(change) {
   const pct = bnDigits(Math.abs(change?.pct || 0).toFixed(1));
 
-  if (change?.dir === "up") return { text: `▲ ${pct}%`, cls: "badge-success" };
-  if (change?.dir === "down") return { text: `▼ ${pct}%`, cls: "badge-error" };
-  return { text: `—${pct}%`, cls: "badge-ghost" };
+  if (change?.dir === "up")
+    return { text: `▲ ${pct}%`, cls: "bg-error/10 text-error" };
+  if (change?.dir === "down")
+    return { text: `▼ ${pct}%`, cls: "bg-success/10 text-success" };
+  return { text: `—${pct}%`, cls: "bg-base-200 text-base-content/60" };
 }
 
 // Detail page: min / max / average
