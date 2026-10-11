@@ -1,5 +1,6 @@
 "use client";
 
+import SocialButtons from "@/components/SocialButtons";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -72,7 +73,7 @@ export default function SignUpPage() {
           </button>
         </form>
 
-        {/* Social buttons */}
+        <SocialButtons />
 
         <p className="text-center text-sm">
           আগে থেকেই অ্যাকাউন্ট আছে?

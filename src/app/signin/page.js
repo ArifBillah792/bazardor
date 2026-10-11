@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import SocialButtons from "@/components/SocialButtons";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -74,7 +75,7 @@ export default function SignInPage() {
           </button>
         </form>
 
-        {/* Social buttons ekhane boshbe */}
+        <SocialButtons/>
 
         <p className="text-center text-sm">
           অ্যাকাউন্ট নেই?{" "}
