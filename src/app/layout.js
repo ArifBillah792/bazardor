@@ -2,6 +2,7 @@ import { Hind_Siliguri } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const bangla = Hind_Siliguri({
   variable: "--font-bangla",
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
         {/* Navbar + Ticker ekhane boshbe (Phase 1) */}
         <Navbar />
         <main className="flex-1">{children}</main>
-        {/* Footer ekhane boshbe (Phase 1) */}
+        <Footer />
         <Toaster position="top-center" />
       </body>
     </html>
