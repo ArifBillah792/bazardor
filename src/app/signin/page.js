@@ -1,14 +1,21 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { authClient } from "@/lib/auth-client";
 
 export default function SignInPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  // Protected page theke ashle toast
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("redirect")) {
+      toast.error("এই পেজটি দেখতে আগে সাইন ইন করুন", { id: "need-login" });
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,15 +50,15 @@ export default function SignInPage() {
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
-            type="email"
             name="email"
+            type="email"
             placeholder="ইমেইল"
             className="input w-full"
           />
           <input
-            type="password"
             name="password"
-            placeholder="পাসওয়ার্ড (কমপক্ষে ৮ অক্ষর)"
+            type="password"
+            placeholder="পাসওয়ার্ড"
             className="input w-full"
           />
           <button
@@ -67,12 +74,11 @@ export default function SignInPage() {
           </button>
         </form>
 
-        {/* Social buttons */}
+        {/* Social buttons ekhane boshbe */}
 
         <p className="text-center text-sm">
-          অ্যাকাউন্ট নেই?
-          <Link href="/signup/" className="link link-primary">
-            {" "}
+          অ্যাকাউন্ট নেই?{" "}
+          <Link href="/signup" className="link link-primary">
             রেজিস্টার করুন
           </Link>
         </p>
